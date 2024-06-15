@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes} from 'react-router-dom';
+import Gallery from "./Gallery";
+import Home from "./Home";
+import Sphere from "./Sphere";
+import Vanc from "./Vanc";
+import Tech from "./Tech"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+export default function App() {
+
+	// const parallax = useParallax({
+	// 	rotate: [0, 360],
+	// });
+
+	return (
+		<div>
+			<Routes>
+				<Route index element={<Home />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/gallery" element={<Gallery />} />
+				<Route path="/gallery/sphere" element={<Sphere />} />
+				<Route path="/gallery/vanc" element={<Vanc />} />
+				<Route path="/gallery/tech" element={<Tech />} />
+			</Routes>
+		</div>
+	);
+};

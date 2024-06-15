@@ -1,38 +1,394 @@
-.App {
-  text-align: center;
+* {
+    padding: 0px;
+    margin: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*
+
+    Hide Scrollbar
+
+*/
+
+::-webkit-scrollbar {
+    display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*
+
+    General settings
+
+*/
+
+body {
+    /* background-color: #f5f4f0; */
+    /* background-color: #f3ebff; */
+    background-color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*
+
+   Main page CSS
+
+*/
+
+ /* Navbar */ 
+.navbar {
+    display: flex;
+    position: relative;
+    margin-right: 1%;
+    overflow: hidden;
+    z-index: 10;
+}
+.navbar a:hover {
+    color:rgb(172, 42, 42);
+}
+.navbar a:active {
+    color: chocolate;
+}
+.navbar a {
+    float: right;
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+#textAlignRight {
+    text-align: right;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* Signature */
+#signature {
+    position: absolute;
+    text-align: left;
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    top: -25px;
+    
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* #container {
+    overflow: hidden;
+} */
+
+
+/* Title */
+#title {
+    position: fixed;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+    font-size: 4rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10;
 }
+
+/* Typing Animation */
+#typing {
+    position: absolute;
+    top: 25%;
+    width: 21ch;
+    animation: type 3s steps(50), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 3rem;
+    left: 2%;
+}
+
+
+/*
+
+    Typing animation keyframes
+
+*/
+@keyframes type {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/*
+
+    Parallax
+
+*/
+
+.container {
+    position:absolute;
+    height: 8000px;
+}
+
+.images-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20%;
+}
+
+.spinner {
+    width:140px;
+    height:140px;
+    background-color: cadetblue;
+    /* margin-top: 50%; */
+}
+
+.aspect34 {
+    width:600px;
+    height: 800px;
+}
+
+.aspect2_21 {
+    width: 2016px;
+    height: 908px;
+}
+
+.slider{
+    width: 450px;
+    height: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translate(230%, 7%);
+}
+
+.slides{
+    width: 500%;
+    height: 600px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition: 2s;
+}
+
+.slide img{
+    width: 450px;
+    height: 600px;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+  
+#radio2:checked ~ .first{
+    margin-left: -20%;
+}
+  
+#radio3:checked ~ .first{
+    margin-left: -40%;
+}
+  
+#radio4:checked ~ .first{
+    margin-left: -60%;
+}
+
+.navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 450px;
+    justify-content: center;
+    margin-top: 560px;
+}
+
+.navigation-auto div{
+    border: 2px solid #333;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~.navigation-auto .auto-btn-1{
+    background: #ccc;
+}
+
+#radio2:checked ~.navigation-auto .auto-btn-2{
+    background: #ccc;
+}
+
+
+#radio3:checked ~.navigation-auto .auto-btn-3{
+    background: #ccc;
+}
+
+#radio4:checked ~.navigation-auto .auto-btn-4{
+    background: #ccc;
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .images-wrapper:not(:first-child) {
+        padding-top: 0.3%; /* Reduce the top padding for all but the first image */
+    }
+    .images-wrapper:first-child {
+        padding-top: 42%; /* Reduce the top padding for all but the first image */
+    }
+    #container {
+        flex-direction: column; /* Stack images vertically */
+    }
+    .aspect34, .aspect2_21 {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+    #typing {
+        position: absolute;
+        top: 16%;
+        width: 20ch;
+        animation: type 3s steps(50), blink .5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: scroll;
+        border-right: 3px solid;
+        font-family: monospace;
+        font-size: 1.5rem;
+        left: 2%;
+    }
+    
+    /* Navbar */
+    .navbar {
+        display: flex;
+        position: relative;
+        margin-right: 1%;
+        overflow: hidden;
+        z-index: 10;
+        padding-top: 10%;
+        top: 2%; /* Adjust this value based on the height of your title */
+        justify-content: center; /* Center items horizontally */
+        width: 100%; /* Ensure the navbar spans the full width */
+        /* padding: 0;  */
+    }
+    .navbar a:hover {
+        color:rgb(172, 42, 42);
+    }
+    .navbar a:active {
+        color: chocolate;
+    }
+    .navbar a {
+        float: none; /* Disable floating for links */
+        color: black;
+        padding: 10px 10px;
+        text-decoration: none;
+    }
+    .slider{
+        width: 240px;
+        height: 320px;
+        border-radius: 10px;
+        overflow: hidden;
+        transform: translate(40%, 40%);
+    }
+    
+    .slides{
+        width: 500%;
+        height: 320px;
+        display: flex;
+    }
+    .slide img{
+        width: 240px;
+        height: 320px;
+    }
+    .navigation-auto{
+        position: absolute;
+        display: flex;
+        width: 240px;
+        justify-content: center;
+        margin-top: 300px;
+    }
+    .navigation-auto div:not(:last-child){
+        margin-right: 20px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 767px) and (max-width: 1024px) {
+    .images-wrapper:not(:first-child) {
+        padding-top: 0.3%; /* Reduce the top padding for all but the first image */
+    }
+    .images-wrapper:first-child {
+        padding-top: 40%; /* Reduce the top padding for all but the first image */
+    }
+    .aspect34, .aspect2_21 {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+    #typing {
+        position: absolute;
+        top: 20%;
+        width: 22ch;
+        animation: type 3s steps(50), blink .5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: auto;
+        border-right: 3px solid;
+        font-family: monospace;
+        font-size: 2.5rem;
+        left: 2%;
+    }
+    /* Navbar */
+    .navbar {
+        display: flex;
+        position: relative;
+        margin-right: 1%;
+        overflow: hidden;
+        z-index: 10;
+        top: 5%;
+        padding-top: 7.5%;
+        justify-content: center; /* Center items horizontally */
+        width: 100%; /* Ensure the navbar spans the full width */
+        /* padding: 0;  */
+    }
+    .navbar a:hover {
+        color:rgb(172, 42, 42);
+    }
+    .navbar a:active {
+        color: chocolate;
+    }
+    .navbar a {
+        float: none; /* Disable floating for links */
+        color: black;
+        padding: 10px 10px;
+        text-decoration: none;
+    }
+    .slider{
+        width: 420px;
+        height: 560px;
+        border-radius: 10px;
+        overflow: hidden;
+        transform: translate(50%, 40%);
+    }
+    
+    .slides{
+        width: 500%;
+        height: 560px;
+        display: flex;
+    }
+    .slide img{
+        width: 420px;
+        height: 560px;
+    }
+    .navigation-auto{
+        position: absolute;
+        display: flex;
+        width: 420px;
+        justify-content: center;
+        margin-top: 520px;
+    }
+    .navigation-auto div:not(:last-child){
+        margin-right: 20px;
+    }
+}
+
