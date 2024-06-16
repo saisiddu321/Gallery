@@ -1,0 +1,25 @@
+.bannerContainer {
+    height: 800px;
+    text-align: center;
+}
+
+.bannerbg {
+    position: relative;
+    width: 37.5% !important;
+    height: 800px;
+    border-left: solid;
+}
+
+#sphereHeader {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    font-family: monospace;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

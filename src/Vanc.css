@@ -1,0 +1,22 @@
+.container3 {
+    height: 1000px;
+    text-align: center;
+}
+
+.bannerbg2 {
+    position: relative;
+    height: 700px;
+    width: 100%;
+}
+
+#vancHeader {
+    position: relative;
+    text-align: center;
+    transform: translate(0%, 90%);
+    font-family: monospace;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
